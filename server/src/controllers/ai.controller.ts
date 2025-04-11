@@ -5,7 +5,7 @@ import cloudinary from '../config/cloudinary.config';
 import getDataUri from '../utils/getDataUri';
 
 const GEMINI_API_KEY = process.env.GOOGLE_GEMINI_KEY!;
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent';
 
 
 export const analyzeResume = async (req: Request, res: Response) => {
@@ -30,7 +30,9 @@ export const analyzeResume = async (req: Request, res: Response) => {
         console.log('File Uploaded to Cloudinary:', cloudinaryResult.secure_url);
 
         const pdfData = await pdfParse(file.buffer);
+        console.log(pdfData);
         const resumeText = pdfData.text;
+        console.log(resumeText);
 
         const prompt = `
             You are an expert resume analyst.
@@ -45,13 +47,15 @@ export const analyzeResume = async (req: Request, res: Response) => {
             - 3 weaknesses or missing elements
             - Skills the candidate should learn
             - A 2-3 line summary of job-fit potential
+            - 3 learning resources
 
             Respond in this JSON format:
             {
             "strengths": [],
             "weaknesses": [],
             "suggestedSkills": [],
-            "jobFitSummary": ""
+            "jobFitSummary": "",
+            "learningResources": [],
             }
             `;
 
@@ -65,15 +69,20 @@ export const analyzeResume = async (req: Request, res: Response) => {
             ],
         }
         );
+        console.log(geminiRes);
+
 
         const content = geminiRes.data.candidates?.[0]?.content?.parts?.[0]?.text;
+        const cleaned = content.replace(/```json|```/g, '').trim();
         if (!content) {
             return res.status(400).json({
                 message: "Invalid response from AI"
             })
         }
 
-        const parsed = JSON.parse(content);
+        const parsed = JSON.parse(cleaned);
+        console.log("------ Response original -------")
+        console.log(parsed);
 
         res.status(200).json({
             message: "Resume analyzed !!",

@@ -8,6 +8,8 @@ import OtpLogin from './pages/OtpLogin.tsx';
 import VerifyEmail from './pages/VerifyEmail.tsx';
 import ResetPassword from './pages/ResetPassword.tsx'
 import ForgotPassword from "./pages/ForgotPassword.tsx";
+import ResumeDetails from "./components/ResumeDetails.tsx";
+
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: '/reset-password',
     element: <ResetPassword/>
+  },
+  {
+    path: '/resume-analysis',
+    element: <ResumeDetails/>
   },
   {
     path: '*',
