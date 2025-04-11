@@ -67,8 +67,8 @@ const Navbar = () => {
       </div>
       {!user ? (
         <div className="flex items-center gap-2">
-          <Button className="bg-[#6a38c2] hover:bg-[#5b30a6]" onClick={() => navigate('/login')}>Login</Button>
-          <Button variant="outline" onClick={() => navigate('/signup')}>Sign Up</Button>
+          <Button className="bg-blue-600 hover:bg-blue-700 cursor-pointer" onClick={() => navigate('/login')}>Login</Button>
+          <Button variant="outline" className="cursor-pointer" onClick={() => navigate('/signup')}>Sign Up</Button>
         </div>
       ) : (
         <Popover>

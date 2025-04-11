@@ -1,63 +1,66 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Index from "./components/Index";
-import { Toaster } from './components/ui/sonner.tsx';
-import Login from './pages/Login.tsx';
-import Signup from './pages/Signup.tsx';
-import NotFound from './pages/NotFound.tsx';
-import OtpLogin from './pages/OtpLogin.tsx';
-import VerifyEmail from './pages/VerifyEmail.tsx';
-import ResetPassword from './pages/ResetPassword.tsx'
-import ForgotPassword from "./pages/ForgotPassword.tsx";
-import ResumeDetails from "./components/ResumeDetails.tsx";
+import { Suspense, lazy } from "react";
+import { Toaster } from "./components/ui/sonner.tsx";
+import Loader from "./components/Loader";
 
+const Index = lazy(() => import("./components/Index"));
+const Login = lazy(() => import("./pages/Login.tsx"));
+const Signup = lazy(() => import("./pages/Signup.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const OtpLogin = lazy(() => import("./pages/OtpLogin.tsx"));
+const VerifyEmail = lazy(() => import("./pages/VerifyEmail.tsx"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword.tsx"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword.tsx"));
+const ResumeDetails = lazy(() => import("./components/ResumeDetails.tsx"));
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Index/>
+  { 
+    path: "/", 
+    element: <Index /> 
   },
-  {
-    path: '/login',
-    element: <Login/>
+  { 
+    path: "/login", 
+    element: <Login /> 
   },
-  {
-    path: '/signup',
-    element: <Signup/>
+  { 
+    path: "/signup", 
+    element: <Signup /> 
   },
-  {
-    path: '/otp-login',
-    element: <OtpLogin/>
+  { 
+    path: "/otp-login", 
+    element: <OtpLogin /> 
   },
-  {
-    path: '/verify-otp',
-    element: <VerifyEmail/>
+  { 
+    path: "/verify-otp", 
+    element: <VerifyEmail /> 
   },
-  {
-    path: '/forgot-password',
-    element: <ForgotPassword/>
+  { 
+    path: "/forgot-password", 
+    element: <ForgotPassword /> 
   },
-  {
-    path: '/reset-password',
-    element: <ResetPassword/>
+  { 
+    path: "/reset-password", 
+    element: <ResetPassword /> 
   },
-  {
-    path: '/resume-analysis',
-    element: <ResumeDetails/>
+  { 
+    path: "/resume-analysis", 
+    element: <ResumeDetails /> 
   },
-  {
-    path: '*',
-    element: <NotFound/>
-  }
-])
+  { 
+    path: "*", 
+    element: <NotFound /> 
+  },
+]);
 
 function App() {
-
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <Suspense fallback={<Loader />}>
+        <RouterProvider router={router} />
+      </Suspense>
       <Toaster />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
