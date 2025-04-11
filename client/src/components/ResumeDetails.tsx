@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
-import { useLocation } from "react-router-dom";
+import {
+  Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer
+} from "recharts";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Button } from "./ui/button";
+
+interface LearningResource {
+  title: string;
+  description: string;
+  url: string;
+}
 
 interface ResumeAnalysis {
   strengths: string[];
   weaknesses: string[];
   suggestedSkills: string[];
   jobFitSummary: string;
-  learningResources: string[];
+  learningResources: LearningResource[];
 }
 
 const defaultAnalysis: ResumeAnalysis = {
@@ -21,6 +30,7 @@ const defaultAnalysis: ResumeAnalysis = {
 const ResumeDetails = () => {
   const location = useLocation();
   const [analysis, setAnalysis] = useState<ResumeAnalysis>(defaultAnalysis);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const stateAnalysis = location.state?.analysis;
@@ -54,6 +64,31 @@ const ResumeDetails = () => {
     </div>
   );
 
+  const renderResources = () => (
+    <div className="mb-4">
+      <h3 className="text-lg font-semibold mb-2">Learning Resources</h3>
+      {analysis.learningResources.length > 0 ? (
+        <ul className="space-y-3">
+          {analysis.learningResources.map((res, idx) => (
+            <li key={idx} className="text-gray-700 border p-3 rounded-md">
+              <a
+                href={res.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 font-medium hover:underline"
+              >
+                {res.title}
+              </a>
+              <p className="text-sm text-gray-600">{res.description}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-gray-500">No learning resources available</p>
+      )}
+    </div>
+  );
+
   const radarData = [
     { subject: "Strengths", value: analysis.strengths.length },
     { subject: "Weaknesses", value: analysis.weaknesses.length },
@@ -70,7 +105,7 @@ const ResumeDetails = () => {
           {renderList("Strengths", analysis.strengths)}
           {renderList("Weaknesses", analysis.weaknesses)}
           {renderList("Suggested Skills", analysis.suggestedSkills)}
-          {renderList("Learning Resources", analysis.learningResources)}
+          {renderResources()}
         </div>
 
         <div>
@@ -80,7 +115,13 @@ const ResumeDetails = () => {
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
               <PolarRadiusAxis angle={30} domain={[0, 10]} />
-              <Radar name="Metrics" dataKey="value" stroke="#2563eb" fill="#3b82f6" fillOpacity={0.6} />
+              <Radar
+                name="Metrics"
+                dataKey="value"
+                stroke="#2563eb"
+                fill="#3b82f6"
+                fillOpacity={0.6}
+              />
             </RadarChart>
           </ResponsiveContainer>
         </div>
@@ -88,7 +129,17 @@ const ResumeDetails = () => {
 
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-2">Job Fit Summary</h3>
-        <p className="text-gray-700">{analysis.jobFitSummary || "No summary available."}</p>
+        <p className="text-gray-700">
+          {analysis.jobFitSummary || "No summary available."}
+        </p>
+      </div>
+      <div className="mt-8">
+        <Button 
+          onClick={() => navigate('/')} 
+          className="cursor-pointer"
+        >
+          Back To HOME
+        </Button>
       </div>
     </div>
   );

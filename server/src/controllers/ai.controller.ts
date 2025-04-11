@@ -46,18 +46,23 @@ export const analyzeResume = async (req: Request, res: Response) => {
             - 3 strengths of the candidate
             - 3 weaknesses or missing elements
             - Skills the candidate should learn
-            - A 2-3 line summary of job-fit potential
-            - 3 learning resources
+            - A 2–3 line summary of job-fit potential
+            - 3 learning resources (with short descriptions and direct links to relevant courses)
 
             Respond in this JSON format:
             {
-            "strengths": [],
-            "weaknesses": [],
-            "suggestedSkills": [],
-            "jobFitSummary": "",
-            "learningResources": [],
-            }
-            `;
+                "strengths": [],
+                "weaknesses": [],
+                "suggestedSkills": [],
+                "jobFitSummary": "",
+                "learningResources": [
+                    {
+                    "title": "",
+                    "description": "",
+                    "url": ""
+                    }
+                ]
+            }`;
 
         const geminiRes: any = await axios.post(
         `${GEMINI_URL}?key=${GEMINI_API_KEY}`,
