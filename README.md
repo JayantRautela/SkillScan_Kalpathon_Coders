@@ -1,0 +1,1 @@
+Project for analysing the resume and suggesting roadmaps and paths for learnings
