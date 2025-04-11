@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import UserRoutes from "./routes/user.route";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -13,6 +14,8 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
+
+app.use('/api/v1/users', UserRoutes)
 
 const PORT = process.env.PORT || 5000;
 
