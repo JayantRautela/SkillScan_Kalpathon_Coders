@@ -4,7 +4,7 @@ import { singleUpload } from "../middleware/multer.middleware";
 
 const router = Router();
 
-router.post('/resigter', register as unknown as express.RequestHandler);
+router.post('/register', singleUpload, register as unknown as express.RequestHandler);
 router.post('/verify-email/:userId', verifyEmail as unknown as express.RequestHandler);
 router.post('/login', login as unknown as express.RequestHandler);
 router.post('/sendOtp', sendOtp as unknown as express.RequestHandler);

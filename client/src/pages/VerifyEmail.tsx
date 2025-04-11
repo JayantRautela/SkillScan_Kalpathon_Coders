@@ -32,7 +32,7 @@ const VerifyEmail: React.FC = () => {
       if (response.data.success) {
         setOtp("");
         toast.success("Email Verified Successfully");
-        setTimeout(() => navigate('/'), 2000);
+        setTimeout(() => navigate('/login'), 2000);
       } else {
         toast.error(response.data.message);
       }
