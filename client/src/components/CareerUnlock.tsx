@@ -11,13 +11,13 @@ const CareerUnlock = () => {
           Unlock Your Career Potential with Our Service
         </h2>
         <p className="text-gray-600 mb-6">
-          Transform your career journey with personalized insights tailored to your unique skills and goals. Our service empowers you to identify areas for improvement and provides a clear path for skill enhancement.
+          Transform your career journey with personalized insights tailored to <br /> your unique skills and goals. Our service empowers you to identify areas for improvement and provides a clear path for skill enhancement.
         </p>
         <div className="flex flex-wrap gap-4">
-          <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+          <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 cursor-pointer">
             Explore
           </Button>
-          <Button className="bg-blue-600 hover:bg-blue-700">
+          <Button className="bg-blue-600 hover:bg-blue-700 cursor-pointer">
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

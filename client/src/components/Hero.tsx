@@ -16,7 +16,7 @@ const Hero = () => {
         <p className="text-lg text-gray-600 mb-8">
           Get expert analysis, personalized <br /> recommendations, and career path <br /> guidance to help you land your dream job.
         </p>
-        <Button className="bg-blue-600 hover:bg-blue-700 flex items-center" onClick={() => setOpen(true)}>
+        <Button className="bg-blue-600 hover:bg-blue-700 flex items-center cursor-pointer" onClick={() => setOpen(true)}>
           <Upload className="mr-2 h-4 w-4" />
           Upload Resume
         </Button>

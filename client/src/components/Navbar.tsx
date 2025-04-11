@@ -13,13 +13,13 @@ const Navbar = () => {
         <a href="#" className="text-sm text-gray-700 hover:text-blue-600">Resume Analysis</a>
         <a href="#" className="text-sm text-gray-700 hover:text-blue-600">Learning Path</a>
         <div className="relative group">
-          <button className="flex items-center text-sm text-gray-700 hover:text-blue-600">
+          <button className="flex items-center text-sm text-gray-700 hover:text-blue-600 cursor-pointer">
             Success Stories
             <ChevronDown className="ml-1 h-4 w-4" />
           </button>
         </div>
         <div className="relative group">
-          <button className="flex items-center text-sm text-gray-700 hover:text-blue-600">
+          <button className="flex items-center text-sm text-gray-700 hover:text-blue-600 cursor-pointer">
             Resources
             <ChevronDown className="ml-1 h-4 w-4" />
           </button>
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
       
       <div>
-        <Button className="bg-blue-600 hover:bg-blue-700">Sign Up</Button>
+        <Button className="bg-blue-600 hover:bg-blue-700 cursor-pointer">Sign Up</Button>
       </div>
     </nav>
   );
