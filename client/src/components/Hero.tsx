@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Upload } from "lucide-react";
 import UploadResume from "./UploadResume";
+import homeImage from "../assets/home.jpeg";
 
 
 const Hero = () => {
@@ -28,7 +29,8 @@ const Hero = () => {
       
       <div className="w-full md:w-1/2">
         <img 
-          src="/lovable-uploads/21fa0b82-173e-4abe-9bc2-2b8d0198d01a.png" 
+          
+          src={homeImage} 
           alt="Resume analysis preview" 
           className="w-full rounded-lg bg-gray-200"
         />

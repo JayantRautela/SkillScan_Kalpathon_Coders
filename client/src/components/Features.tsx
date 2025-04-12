@@ -1,11 +1,12 @@
 
 import { ArrowRight } from "lucide-react";
+import Analysis from "../assets/analysis.jpeg";
 
 const FeatureCard = ({ title, description, action, link }: { title: string; description: string; action: string, link: string }) => {
   return (
     <div className="bg-gray-100 p-6 rounded-lg">
       <div className="w-20 h-20 mb-4 flex items-center justify-center bg-gray-200 rounded-lg">
-        <img src="/placeholder.svg" alt="Feature icon" className="w-12 h-12" />
+        <img src={Analysis} alt="Feature icon" className="w-20 h-20 " />
       </div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-gray-600 text-sm mb-4">{description}</p>

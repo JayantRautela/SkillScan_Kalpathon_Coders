@@ -1,10 +1,11 @@
 import React from "react";
+import FeedBack from "../assets/feedback.jpeg"
 
 const FeedbackStep = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
     <div className="text-center px-4">
       <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
-        {icon}
+        <img src={FeedBack} alt="" />
       </div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-sm text-gray-600">{description}</p>
