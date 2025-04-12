@@ -37,12 +37,17 @@ Resume Analyzer is a full-stack AI-powered application that helps job seekers op
 
 - Node.js >= 18
 - npm 
-- GooGGOOGLE GEMINI API Key
+- GOOGLE GEMINI API Key
 
 ### Backend Setup
 
 ```bash
-cd backend
+cd server
 npm install
 # Create a .env file with your OPENAI_API_KEY
+npm run dev
+
+```bash
+cd cliemt
+npm install
 npm run dev
