@@ -1,17 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Suspense, lazy } from "react";
 import { Toaster } from "./components/ui/sonner.tsx";
-import Loader from "./components/Loader";
+import Index from "./components/Index.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import OtpLogin from "./pages/OtpLogin.jsx";
+import VerifyEmail from "./pages/VerifyEmail.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
+import ResetPassword from "./pages/ResetPassword.jsx";
+import ResumeDetails from "./components/ResumeDetails.tsx";
+import NotFound from "./pages/NotFound.tsx";
+import VerfiyEmailPopUp from "./pages/VerifyEmailPopUp.tsx";
 
-const Index = lazy(() => import("./components/Index"));
-const Login = lazy(() => import("./pages/Login.tsx"));
-const Signup = lazy(() => import("./pages/Signup.tsx"));
-const NotFound = lazy(() => import("./pages/NotFound.tsx"));
-const OtpLogin = lazy(() => import("./pages/OtpLogin.tsx"));
-const VerifyEmail = lazy(() => import("./pages/VerifyEmail.tsx"));
-const ResetPassword = lazy(() => import("./pages/ResetPassword.tsx"));
-const ForgotPassword = lazy(() => import("./pages/ForgotPassword.tsx"));
-const ResumeDetails = lazy(() => import("./components/ResumeDetails.tsx"));
 
 const router = createBrowserRouter([
   { 
@@ -31,7 +30,7 @@ const router = createBrowserRouter([
     element: <OtpLogin /> 
   },
   { 
-    path: "/verify-otp", 
+    path: "/verify-otp",  
     element: <VerifyEmail /> 
   },
   { 
@@ -46,6 +45,10 @@ const router = createBrowserRouter([
     path: "/resume-analysis", 
     element: <ResumeDetails /> 
   },
+  {
+    path: '/verfiyEmailPopUp',
+    element: <VerfiyEmailPopUp />
+  },
   { 
     path: "*", 
     element: <NotFound /> 
@@ -55,9 +58,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <Suspense fallback={<Loader />}>
-        <RouterProvider router={router} />
-      </Suspense>
+      <RouterProvider router={router} />
       <Toaster />
     </>
   );

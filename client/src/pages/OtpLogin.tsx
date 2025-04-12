@@ -2,7 +2,7 @@ import OtpLoginForm from "../components/OtpLoginForm"
 
 const OtpLogin = () => {
   return (
-    <div>
+    <div className="h-screen w-full flex items-center justify-center">
       <OtpLoginForm/>
     </div>
   )

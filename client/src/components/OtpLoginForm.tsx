@@ -63,6 +63,7 @@ const OtpLoginForm = () => {
         },
         { withCredentials: true }
       );
+      console.log(res);
 
       dispatch(setUser(res.data.user));
       toast.success("Logged in successfully");
@@ -94,7 +95,7 @@ const OtpLoginForm = () => {
           />
           <Button
             onClick={handleSendOtp}
-            className="w-full bg-[#1e88e5] hover:bg-[#1976d2] py-6"
+            className="w-full bg-[#1e88e5] hover:bg-[#1976d2] py-6 cursor-pointer"
             disabled={loading}
           >
             {loading ? "Sending OTP..." : "Send OTP"}
@@ -113,7 +114,7 @@ const OtpLoginForm = () => {
           />
           <Button
             onClick={handleVerifyOtp}
-            className="w-full bg-[#1e88e5] hover:bg-[#1976d2] py-6"
+            className="w-full bg-[#1e88e5] hover:bg-[#1976d2] py-6 cursor-pointer"
             disabled={loading}
           >
             {loading ? "Verifying..." : "Verify OTP"}

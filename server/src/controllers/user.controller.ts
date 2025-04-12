@@ -261,6 +261,21 @@ export const login = async (req: Request, res: Response) => {
     }
 }
 
+export const logout = async (req: Request, res: Response) => {
+    try {
+        return res.status(200).cookie("token", "", {maxAge: 0}).json({
+            message: "Logged out successfully",
+            success: true
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            message: "Internal Server Error",
+            success: false
+        });
+    }
+}
+
 //login via OTP
 export const sendOtp = async (req: Request, res: Response) => {
     try {

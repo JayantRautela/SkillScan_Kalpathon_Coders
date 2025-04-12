@@ -86,16 +86,18 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md px-6">
+    <div className="w-full max-w-md px-6 mt-6">
       <div>
-        <div className="inline-block border border-black/20 rounded-full px-6 py-2 mt-8 mb-4">
-          <span className="text-lg">Kalpathon</span>
+        <div className="flex items-center mb-4">
+          <a href="/" className="text-xl font-semibold">
+            SkillScan
+          </a>
         </div>
       </div>
 
-      <h1 className="text-3xl font-bold mb-6">Log In</h1>
+      <h1 className="text-3xl font-bold mb- mt-2">Log In</h1>
 
-      <form className="space-y-2" onSubmit={handleSubmit}>
+      <form className="space-y-2 mt-2" onSubmit={handleSubmit}>
         <div className="space-y-1">
           <label htmlFor="username" className="block font-medium">
             Username

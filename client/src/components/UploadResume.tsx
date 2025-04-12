@@ -104,6 +104,7 @@ const PdfUploadDialog = ({ open, onOpenChange }: PdfUploadDialogProps) => {
           headers: {
             "Content-Type": "multipart/form-data",
           },
+          withCredentials: true
         }
       );
 

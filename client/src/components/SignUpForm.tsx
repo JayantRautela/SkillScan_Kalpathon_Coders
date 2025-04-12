@@ -71,8 +71,9 @@ const SignUpForm: React.FC = () => {
       console.log("Upload success:", response.data);
       if (response.status === 201) {
         toast.success("User registered successfully");
-        setTimeout(() => navigate("/verify-email/6"), 2000);
+        setTimeout(() => navigate("/verfiyEmailPopUp"), 2000);
       }
+
     } catch (error: any) {
       console.log(error);
       if (error.response.data.message) {
@@ -93,8 +94,10 @@ const SignUpForm: React.FC = () => {
   return (
     <div className="w-full max-w-md px-6">
       <div>
-        <div className="inline-block border border-black/20 rounded-full px-6 py-2 mt-8 mb-4">
-          <span className="text-lg">Kalpathon</span>
+        <div className="flex items-center mb-4">
+          <a href="/" className="text-xl font-semibold">
+            SkillScan
+          </a>
         </div>
       </div>
 
