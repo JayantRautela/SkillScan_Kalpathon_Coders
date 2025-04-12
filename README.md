@@ -1,6 +1,6 @@
 # 🧠 Resume Analyzer – AI-powered Resume Evaluation Tool
 
-Resume Analyzer is a full-stack AI-powered application that helps job seekers optimize their resumes by parsing PDF resumes, comparing them to job descriptions, identifying skill gaps, providing improvement suggestions using GPT, and generating ATS (Applicant Tracking System) scores.
+Resume Analyzer is a full-stack AI-powered application that helps job seekers optimize their resumes by parsing PDF resumes, comparing them to job descriptions, identifying skill gaps, providing improvement suggestions using GPT.
 
 ## ✨ Features
 
